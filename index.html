@@ -14,6 +14,24 @@
     footer{
         border-top: 3px solid #FFEBEB;
     }
+    .active{
+      background-color: #3B25C1;
+      color: white;
+    }
+    .modal-action{
+      display: flex;
+      flex-direction: column;
+    }
+    .synonym-tag{
+      background: #EDF7FF;
+      color: black;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-right: 3px;
+    }
+    html {
+        scroll-behavior: smooth;
+      }
 </style>
 </head>
 <body>
@@ -45,12 +63,13 @@
               </a>
             </div>
             <div class="navbar-end gap-3">
-              <a class="btn"><img src="assets/fa-circle-question.png" alt="">FAQ</a>
-              <a class="btn"><img src="assets/fa-book-open.png" alt="">learn</a>
+              <a href="#faqSection" class="btn"><img src="assets/fa-circle-question.png" alt="">FAQ</a>
+              <a href="#learnVocabulary" class="btn"><img src="assets/fa-book-open.png" alt="">learn</a>
               <a class="btn"><img src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</a>
             </div>
           </div>
     </nav>
+    
     <header>
         <div class="hero  min-h-screen">
             <div class="hero-content flex-col lg:flex-row-reverse">
@@ -73,21 +92,42 @@
     </header>
     <main class="mb-30">
         <!-- vocabulary section -->
-         <section>
+         <section id="learnVocabulary">
             <div class="text-center text-3xl font-bold">
                 <h2><span>Let's </span>Learn vocabulary</h2>
             </div>
             <div id="btn-container" class="text-center flex justify-center mt-10">
                 <!-- <button class="btn btn-outline btn-primary"> Lessonn-1</button> -->
             </div>
-            <div id="word-container" class="text-center grid grid-cols-3 gap-3 mt-10 bg-base-200 p-20">
+          </section>
+          <section>
+            <div id="word-container" class="text-center gap-3 grid grid-cols-3 mt-10 bg-base-200 p-20">
+              <!-- <div class="flex flex-col items-center justify-center ">
+                <p class="text-[#9CA2A7]">আপনি এখনো কোন Lesson Select করেন ন</p>
+              <h3 class="text-2xl mt-5 font-medium">একটি Lesson Select করুন।</h3>
+              </div> -->
+              <!-- <section id="loader" class="text-center py-10 hidden">
+                <span class="loading loading-dots loading-xl"></span>
+              </section> -->
+              <div class="col-span-full flex flex-col justify-center items-center text-center">
+                <p class="text-[#9CA2A7]">আপনি এখনো কোন Lesson Select করেন ন</p>
+              <h3 class="text-2xl mt-5 font-medium">একটি Lesson Select করুন।</h3>
+              </div>
+              <!-- <div class="col-span-full flex flex-col justify-center items-center text-center">
+                <img class="w-[120px]" src="assets/alert-error.png" alt="">
+                <p class="text-[#9CA2A7]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h3 class="text-2xl mt-5 font-medium">নেক্সট Lesson এ যান</h3>
+              </div> -->
+            </div>
+            </section>
+            <!-- <div id="word-containers" class="text-center gap-3 mt-10 bg-base-200 p-20"> -->
                 <!-- <p class="text-[#9CA2A7]">আপনি এখনো কোন Lesson Select করেন ন</p>
                 <h3 class="text-2xl mt-5 font-medium">একটি Lesson Select করুন।</h3> -->
-            </div>
-         </section>
+            <!-- </div> -->
+          </section>
 
         <!-- frequently asked question -->
-         <div class="bg-white p-10 mt-30">
+         <div id="faqSection" class="bg-white p-10 mt-30">
             <div class="text-center text-3xl font-bold">
                 <h2><span>Frequently </span>Asked Questions</h2>
             </div>
@@ -175,6 +215,21 @@
           </div>
         </nav>
       </footer>
+      <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+<dialog id="word_details" class="modal">
+  <div class="modal-box">
+    <div id="details-container">
+
+    </div>
+    <div class="modal-action">
+      <form method="dialog" >
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-primary flex flex-start">Complete Learning</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
       <script src="app.js"></script>
 </body>
