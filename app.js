@@ -3,6 +3,10 @@ const showLoader=()=>{
   document.getElementById("word-container").classList.add("hidden");
 
 }
+const hideLoader = () => {
+  document.getElementById("loader").classList.add("hidden");
+  document.getElementById("word-container").classList.remove("hidden");
+};
 
 function removeActiveClass(){
   const activeButtons = document.getElementsByClassName("active");
@@ -23,6 +27,7 @@ function loadWords(){
     .then((data)=>displayWords(data.data));
 }
 const loadCategoryWords=(id)=>{
+  
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   console.log(url);
   fetch(url)
@@ -83,6 +88,7 @@ const displayWords=(datas)=>{
     wordContainer.innerHTML="";
 
     if(datas.length == 0){
+      console.log(datas.length)
       wordContainer.innerHTML=`
       <div class="col-span-full flex flex-col justify-center items-center text-center">
                 <img class="w-[120px]" src="assets/alert-error.png" alt="">
@@ -95,12 +101,13 @@ const displayWords=(datas)=>{
     datas.forEach((data)=>{
         // console.log(data);
         const videoCard = document.createElement("div");
+        const p="অর্থ নাই";
         videoCard.innerHTML= `
         <div class="card bg-white text-center">
           <div class="card-body items-center text-center px-5">
             <h2 class="card-title">${data.word}</h2>
             <p>Meaning / Pronounciation</p>
-            <p>"${data.meaning} / ${data.pronunciation}"</p>
+            <p>"${data.meaning==null?p:data.meaning} / ${data.pronunciation}"</p>
             <div class="flex justify-between">
               <i onclick=loardWordsDetails(${data.id}) class="fa-solid fa-circle-info mr-20 cursor-pointer"></i>
               <i class="fa-solid fa-volume-high ml-20"></i>

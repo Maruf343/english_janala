@@ -35,7 +35,7 @@
 </style>
 </head>
 <body>
-    <nav>
+    <nav id="navBarSection">
         <div class="navbar bg-base-200 shadow-sm">
             <div class="navbar-start">
               <div class="dropdown">
@@ -65,13 +65,13 @@
             <div class="navbar-end gap-3">
               <a href="#faqSection" class="btn"><img src="assets/fa-circle-question.png" alt="">FAQ</a>
               <a href="#learnVocabulary" class="btn"><img src="assets/fa-book-open.png" alt="">learn</a>
-              <a class="btn"><img src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</a>
+              <a class="btn" id="logout"><img src="assets/fa-arrow-right-from-bracket.png" alt="">Logout</a>
             </div>
           </div>
     </nav>
     
     <header>
-        <div class="hero  min-h-screen">
+        <div id="bannerSection" class="hero  min-h-screen">
             <div class="hero-content flex-col lg:flex-row-reverse">
               <img class="w-5/12"
                 src="assets/hero-student.png"
@@ -82,49 +82,47 @@
                     আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
                 </p>
                 <div class="flex flex-col gap-3 mb-3">
-                    <input type="text" placeholder="Enter Your Name" class="input" />
-                    <input type="password" placeholder="" class="input" />
+                  <input
+                  id="userName"
+                  type="text"
+                  placeholder="Enter your name"
+                  class="input"
+                />
+                <input
+                  id="userPin"
+                  type="password"
+                  placeholder="123456"
+                  class="input mt-5"
+                />
                 </div>
-                <button class="btn btn-primary">Get Started</button>
+                <button id="getStarted" class="btn btn-primary">Get Started</button>
               </div>
             </div>
           </div>
     </header>
-    <main class="mb-30">
+    
+        <section id="loader" class="text-center py-10 hidden">
+          <span class="loading loading-bars loading-xl"></span>
+        </section>
         <!-- vocabulary section -->
          <section id="learnVocabulary">
+         <section id="learnSection">
             <div class="text-center text-3xl font-bold">
                 <h2><span>Let's </span>Learn vocabulary</h2>
             </div>
             <div id="btn-container" class="text-center flex justify-center mt-10">
-                <!-- <button class="btn btn-outline btn-primary"> Lessonn-1</button> -->
+                
             </div>
           </section>
           <section>
             <div id="word-container" class="text-center gap-3 grid grid-cols-3 mt-10 bg-base-200 p-20">
-              <!-- <div class="flex flex-col items-center justify-center ">
-                <p class="text-[#9CA2A7]">আপনি এখনো কোন Lesson Select করেন ন</p>
-              <h3 class="text-2xl mt-5 font-medium">একটি Lesson Select করুন।</h3>
-              </div> -->
-              <!-- <section id="loader" class="text-center py-10 hidden">
-                <span class="loading loading-dots loading-xl"></span>
-              </section> -->
               <div class="col-span-full flex flex-col justify-center items-center text-center">
                 <p class="text-[#9CA2A7]">আপনি এখনো কোন Lesson Select করেন ন</p>
               <h3 class="text-2xl mt-5 font-medium">একটি Lesson Select করুন।</h3>
               </div>
-              <!-- <div class="col-span-full flex flex-col justify-center items-center text-center">
-                <img class="w-[120px]" src="assets/alert-error.png" alt="">
-                <p class="text-[#9CA2A7]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-                <h3 class="text-2xl mt-5 font-medium">নেক্সট Lesson এ যান</h3>
-              </div> -->
             </div>
             </section>
-            <!-- <div id="word-containers" class="text-center gap-3 mt-10 bg-base-200 p-20"> -->
-                <!-- <p class="text-[#9CA2A7]">আপনি এখনো কোন Lesson Select করেন ন</p>
-                <h3 class="text-2xl mt-5 font-medium">একটি Lesson Select করুন।</h3> -->
-            <!-- </div> -->
-          </section>
+        </section>
 
         <!-- frequently asked question -->
          <div id="faqSection" class="bg-white p-10 mt-30">
@@ -160,9 +158,9 @@
             </div>
          </div>
 
-    </main>
+    
 
-    <footer class="footer flex justify-between p-10 ">
+    <footer id="footerSection" class="footer flex justify-between p-10 ">
         <aside>
             <div class="flex items-center">
                 <p>English</p>
@@ -179,7 +177,7 @@
         <nav class="flex flex-col justify-end">
           <h6 class="footer-title">Follow Us</h6>
           <div class="grid grid-flow-col gap-4">
-            <a class="cursor-pointer">
+            <a href="https://www.linkedin.com/in/abdullah-al-maruf-63a393200/" class="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -190,7 +188,7 @@
                   d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
               </svg>
             </a>
-            <a class="cursor-pointer">
+            <a href="https://www.youtube.com/@abdullahalmaruf6860" class="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -201,7 +199,7 @@
                   d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
               </svg>
             </a>
-            <a class="cursor-pointer">
+            <a href="https://www.facebook.com/Abdullah.Maruf3434" class="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -232,5 +230,7 @@
 </dialog>
 
       <script src="app.js"></script>
+      <script src="hide.js"></script>
+      <script src="utilities.js"></script>
 </body>
 </html>
