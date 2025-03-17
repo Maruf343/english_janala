@@ -1,9 +1,9 @@
 document.getElementById("navBarSection").style.display = "none";
 document.getElementById("bannerSection").style.display = "";
 document.getElementById("learnSection").style.display = "none";
+document.getElementById("word-container").style.display = "none";
 document.getElementById("faqSection").style.display = "none";
 document.getElementById("footerSection").style.display = "";
-document.getElementById("word-container").style.display = "none";
 
 document.getElementById("getStarted").addEventListener("click", function (event) {
     event.preventDefault();
@@ -30,10 +30,12 @@ document.getElementById("getStarted").addEventListener("click", function (event)
     
   });
 
-document.getElementById("logout").addEventListener("click", function () {
-  document.getElementById("navBarSection").style.display = "none";
-  document.getElementById("bannerSection").style.display = "";
-  document.getElementById("learnSection").style.display = "none";
-  document.getElementById("faqSection").style.display = "none";
-  document.getElementById("footerSection").style.display = "";
-});
+  document.getElementById("logout").addEventListener("click", function () {
+    document.getElementById("navBarSection").style.display = "none";
+    document.getElementById("bannerSection").style.display = "";
+    document.getElementById("learnSection").style.display = "none";
+    document.getElementById("word-container").style.display = "none"; // Add this line
+    document.getElementById("faqSection").style.display = "none";
+    document.getElementById("footerSection").style.display = "";
+  });
+  
